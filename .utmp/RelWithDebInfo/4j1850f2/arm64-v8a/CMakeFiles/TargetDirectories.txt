@@ -1,0 +1,8 @@
+D:/MyUnity/2D/GameFunny/.utmp/RelWithDebInfo/4j1850f2/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/MyUnity/2D/GameFunny/.utmp/RelWithDebInfo/4j1850f2/arm64-v8a/CMakeFiles/rebuild_cache.dir
+D:/MyUnity/2D/GameFunny/.utmp/RelWithDebInfo/4j1850f2/arm64-v8a/GameActivity/CMakeFiles/game.dir
+D:/MyUnity/2D/GameFunny/.utmp/RelWithDebInfo/4j1850f2/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+D:/MyUnity/2D/GameFunny/.utmp/RelWithDebInfo/4j1850f2/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+D:/MyUnity/2D/GameFunny/.utmp/RelWithDebInfo/4j1850f2/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/MyUnity/2D/GameFunny/.utmp/RelWithDebInfo/4j1850f2/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+D:/MyUnity/2D/GameFunny/.utmp/RelWithDebInfo/4j1850f2/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

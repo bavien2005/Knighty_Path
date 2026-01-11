@@ -1,0 +1,1 @@
+D:\MyUnity\2D\GameFunny\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\4j1850f2\obj\arm64-v8a
