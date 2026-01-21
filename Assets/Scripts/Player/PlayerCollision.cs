@@ -6,17 +6,18 @@ public class PlayerCollision : MonoBehaviour
 {
 
     [SerializeField] private float destroyItemCoin = 0.3f;
+    [SerializeField] private int scoreCoin = 1;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if ( other.CompareTag("Coin")) 
         {
             Destroy(other.gameObject, destroyItemCoin);
-           // GameManager._instance.AddCoin();
+            GameManager._instance.AddCoin(scoreCoin);
             AudioManager._instance.PlayCoinSound();
         }
 
-        else if (other.CompareTag("Trap"))
+        else if ( other.CompareTag("Trap")  || (other.CompareTag("vacuum")))
         {
             GameManager._instance.GameOver();
         }

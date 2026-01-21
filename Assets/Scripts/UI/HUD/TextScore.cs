@@ -15,7 +15,7 @@ public class TextScore : MonoBehaviour
 
     private void Start()
     {
-       // GameManager._instance._updateScore.AddListener(UpdateScoreText);
+        // GameManager._instance._updateScore.AddListener(UpdateScoreText);
     }
 
 
@@ -25,11 +25,17 @@ public class TextScore : MonoBehaviour
     }
     private void OnEnable()
     {
-        GameManager._instance._updateScore.AddListener(UpdateScoreText);
+        if (GameManager._instance != null)
+        {
+            GameManager._instance._updateScore.AddListener(UpdateScoreText);
+        }
     }
 
     private void OnDisable()
     {
-        GameManager._instance._updateScore.RemoveListener(UpdateScoreText);
+        if (GameManager._instance != null)
+        {
+            GameManager._instance._updateScore.RemoveListener(UpdateScoreText);
+        }
     }
 }

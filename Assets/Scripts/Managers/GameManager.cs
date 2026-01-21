@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager _instance;
 
+    private GameData data;
+
     private void Awake()
     {
         if (_instance == null)
@@ -26,19 +28,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    private void Start()
+    {
+        data = SaveSystem.Load();
+        scoreCoin = data.coin;
+        _updateScore?.Invoke(scoreCoin);
+    }
 
     public void AddCoin(int coin)
     {
+        //this.scoreCoin += coin;
+        //_updateScore?.Invoke(scoreCoin);
         this.scoreCoin += coin;
         _updateScore?.Invoke(scoreCoin);
+        data.coin = scoreCoin;
+        SaveSystem.Save(data);
     }
 
     public void GameOver()
     {
         UIManager.Instance.ShowGameOver();
         Time.timeScale = 0;
-        scoreCoin = 0;
     }
 
     public void RestarGame()
@@ -46,9 +56,8 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UnvisibleGameOver();
         SceneManager.LoadScene("Game");
         SceneManager.LoadScene("EnvironmentScene", LoadSceneMode.Additive);
-        SceneManager.LoadScene("Level1", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Level_1", LoadSceneMode.Additive);
         Time.timeScale = 1;
-        scoreCoin = 0;
     }
 
     public void GameWin()

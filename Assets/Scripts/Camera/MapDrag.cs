@@ -31,7 +31,6 @@ public class MapDrag : MonoBehaviour
         {
             lastMousePos = Input.mousePosition;
             isDragging = true;
-            print("s");
         }
 
         if (Input.GetMouseButtonUp(0))
