@@ -21,7 +21,7 @@ public class TextScore : MonoBehaviour
 
     private void UpdateScoreText(int coin)
     {
-        m_TextMeshPro.text = "Score: " + coin.ToString();
+        m_TextMeshPro.text = ": " + coin.ToString();
     }
     private void OnEnable()
     {

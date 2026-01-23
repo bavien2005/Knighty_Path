@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioClip audioCoinClip;
 
-    private PlayerController playerController;
+    private Player playerController;
 
     private PlayerCollision playerCollision;
 
@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        playerController = FindAnyObjectByType<PlayerController>();
+        playerController = FindAnyObjectByType<Player>();
         playerCollision = FindAnyObjectByType<PlayerCollision>();
 
         if (_instance == null)

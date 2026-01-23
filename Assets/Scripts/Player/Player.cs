@@ -1,14 +1,28 @@
 using System;
 using UnityEngine;
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
 
+
+    [Header("Move")]
     [SerializeField] private float moveSpeed = 20f;
 
     [SerializeField] private float jumSpeed = 15f;
 
-
     [SerializeField] private bool isGround = true;
+
+    [Header("Health")]
+    [SerializeField] private float health;
+
+    [SerializeField] private float maxHealth;
+
+    [SerializeField] private float maxTotalHealth;
+    
+    public float Health { get { return health; } }
+
+    public float MaxHealth { get { return maxHealth; } }
+
+    public float MaxTotalHealth { get { return maxTotalHealth; } }
 
 
     private Animator animator;
@@ -19,6 +33,24 @@ public class PlayerController : MonoBehaviour
     private AudioManager audioManager;
 
     private MobileInput mobileInput;
+
+    public delegate void OnHealthChangedDelegate();
+
+    public OnHealthChangedDelegate onHealthChanged;
+
+
+    #region Sigleton
+    private static Player instance;
+    public static Player Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = FindObjectOfType<Player>();
+            return instance;
+        }
+    }
+    #endregion
 
     private void Awake()
     {
@@ -105,5 +137,36 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsJumpping", isJumping);
     }
 
+    private void ClampHealth()
+    {
+        health = Math.Clamp(health , 0 , maxHealth);
+        if (onHealthChanged != null )
+        {
+            onHealthChanged.Invoke();
+        }
+    }
+    public void Heal(float health)
+    {
+        this.health += health;
+        ClampHealth();
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        this.health -= dmg;
+        ClampHealth();
+    }
+
+    public void AddHealth()
+    {
+        if (maxHealth < maxTotalHealth)
+        {
+            maxHealth += 1;
+            health = maxHealth;
+
+            if (onHealthChanged != null)
+                onHealthChanged.Invoke();
+        }
+    }
 
 }
